@@ -367,9 +367,9 @@ RUN set -eux \
     && true
 
 # Copy PHP-FPM configuration files
-COPY 8.1-fpm/php-fpm.tmpl.conf /var/data/php-fpm/php-fpm.tmpl.conf
-COPY 8.1-fpm/www.tmpl.conf /var/data/php-fpm/www.tmpl.conf
-COPY 8.1-fpm/php.tmpl.ini /var/data/php-fpm/default-php.tmpl.ini
+COPY php-fpm.tmpl.conf /var/data/php-fpm/php-fpm.tmpl.conf
+COPY www.tmpl.conf /var/data/php-fpm/www.tmpl.conf
+COPY php.tmpl.ini /var/data/php-fpm/default-php.tmpl.ini
 
 RUN set -eux \
 # PHP-FPM templates directory
@@ -397,8 +397,8 @@ RUN set -eux \
     && true
 
 # Copy util scripts
-COPY 8.1-fpm/envsubst.sh /envsubst.sh
-COPY 8.1-fpm/entrypoint.sh /entrypoint.sh
+COPY envsubst.sh /envsubst.sh
+COPY entrypoint.sh /entrypoint.sh
 
 STOPSIGNAL SIGQUIT
 
